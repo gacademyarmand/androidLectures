@@ -1,5 +1,6 @@
 package android.example.com.androidlectures
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -22,8 +23,12 @@ class MainActivity : AppCompatActivity() {
         var nameEditText : EditText = findViewById(R.id.etName)
         var mainTextView : TextView = findViewById(R.id.tvMain)
 
-        var data = nameEditText.text.toString()
+        var data = nameEditText.text.toString();
         mainTextView.setText(data)
+
+        var hIntention = Intent(this,HomeActivity::class.java)
+        hIntention.putExtra("mykey",data)
+        startActivity(hIntention)
 
     }
 }
