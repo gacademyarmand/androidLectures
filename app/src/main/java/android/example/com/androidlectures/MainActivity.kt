@@ -53,4 +53,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         //}
     }
+
+    fun openMyCalendar(view: View) {
+        var calIntent = Intent("cognizant.portugal.academy")
+        startActivity(calIntent)
+    }
 }
