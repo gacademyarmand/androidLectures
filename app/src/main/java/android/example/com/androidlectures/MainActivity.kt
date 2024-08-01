@@ -58,4 +58,5 @@ class MainActivity : AppCompatActivity() {
         var calIntent = Intent("cognizant.portugal.academy")
         startActivity(calIntent)
     }
+
 }
