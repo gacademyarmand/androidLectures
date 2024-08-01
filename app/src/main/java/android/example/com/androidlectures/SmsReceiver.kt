@@ -1,5 +1,6 @@
 package android.example.com.androidlectures
 
+//https://developer.android.com/reference/android/telephony/SmsMessage
 import android.telephony.SmsMessage
 import android.content.BroadcastReceiver
 import android.content.Context
