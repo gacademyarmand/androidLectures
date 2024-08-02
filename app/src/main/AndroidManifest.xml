@@ -10,6 +10,7 @@
 <!--https://developer.android.com/reference/android/Manifest.permission#RECEIVE_SMS-->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:allowBackup="true"
