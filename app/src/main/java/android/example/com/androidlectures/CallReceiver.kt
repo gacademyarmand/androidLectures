@@ -3,6 +3,8 @@ package android.example.com.androidlectures
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.example.com.androidlectures.SmsReceiver.Companion
+import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.Toast
 
@@ -10,9 +12,19 @@ import android.widget.Toast
 class CallReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        Log.i(CallReceiver.TAG, "academy you have received a call -- cognizant")
         try {
-            Toast.makeText(context, " Receiver start: phone call ", Toast.LENGTH_SHORT).show()
+            val state = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
+            val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
+            if(state.equals(TelephonyManager.EXTRA_STATE_RINGING)){
+                Log.i(SmsReceiver.TAG, "Receiving Call from: " + incomingNumber)
+                Toast.makeText(context,"Incoming Call State: "+incomingNumber,Toast.LENGTH_SHORT).show();
+            }
+            if ((state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK))){
+                Toast.makeText(context,"Call Received State",Toast.LENGTH_SHORT).show();
+            }
+            if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)){
+                Toast.makeText(context,"Call Idle State",Toast.LENGTH_SHORT).show();
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
